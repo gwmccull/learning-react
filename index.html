@@ -12,10 +12,39 @@
 <script src="lib/react-dom.js"></script>
 
 <script type="text/javascript">
-    var hello = React.createElement('p', null, 'Hello, World!');
+    var notes = [
+        { id: 1, content: 'Learn React' },
+        { id: 2, content: 'Get Lunch' },
+        { id: 3, content: 'Learn React Native' }
+    ];
 
-    // Checkout what this does by opening your HTML file in the browser
-    ReactDOM.render(hello, document.getElementById('entry-point'));
+    var Note = React.createClass({
+        render() {
+            return React.createElement('li', {}, this.props.content);
+        }
+    });
+
+    var NotesList = React.createClass({
+        renderNote(note) {
+            return React.createElement(Note, {key: note.id, content: note.content})
+        },
+        render() {
+            return React.createElement('ul', {}, this.props.notes.map(this.renderNote))
+        }
+    });
+
+    var App = React.createClass({
+        render() {
+            var notes = this.props.notes;
+
+            return React.createElement('section', {},
+                React.createElement('h1', {}, 'You have ' + notes.length + ' reminders!'),
+                React.createElement(NotesList, {notes: notes})
+            );
+        }
+    });
+
+    ReactDOM.render(React.createElement(App, { notes: notes }), document.getElementById('entry-point'));
 </script>
 </body>
 </html>
