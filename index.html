@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Introduction | Learning React</title>
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+<div id="entry-point"></div>
+<!-- Alternatively: -->
+<script src="lib/react.js"></script>
+<script src="lib/react-dom.js"></script>
+
+<script type="text/javascript">
+    var hello = React.createElement('p', null, 'Hello, World!');
+
+    // Checkout what this does by opening your HTML file in the browser
+    ReactDOM.render(hello, document.getElementById('entry-point'));
+</script>
+</body>
+</html>
