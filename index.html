@@ -12,42 +12,7 @@
 <script src="lib/react-dom.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser.js"></script>
 
-<script type="text/babel">
-    var notes = [
-        { id: 1, content: 'Learn React' },
-        { id: 2, content: 'Get Lunch' },
-        { id: 3, content: 'Learn React Native' }
-    ];
-
-    var Note = React.createClass({
-        render() {
-            return <li>{this.props.content}</li>;
-        }
-    });
-
-    var NotesList = React.createClass({
-        renderNote(note) {
-            return <Note key={note.id} content={note.content} />
-        },
-        render() {
-            return <ul>{this.props.notes.map(this.renderNote)}</ul>
-        }
-    });
-
-    var App = React.createClass({
-        render() {
-            var notes = this.props.notes;
-
-            return (
-                <section>
-                    <h1>You have {notes.length} reminders!</h1>
-                    <NotesList notes={notes} />
-                </section>
-            );
-        }
-    });
-
-    ReactDOM.render(<App notes={notes} />, document.getElementById('entry-point'));
+<script type="text/babel" src="notes.jsx">
 </script>
 </body>
 </html>
